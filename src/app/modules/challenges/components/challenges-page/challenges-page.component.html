@@ -1,0 +1,21 @@
+<div class="tabs">
+  <div class="container d-flex align-items-center justify-content-center">
+    <nav>
+      <ul class="tabs-nav d-flex align-items-center justify-content-between">
+        <li class="ml-3"><a (click)="openTabHandler()" [ngClass]="{ active: activeTab == 'open' }">OPEN</a></li>
+        <li class="ml-3"><a (click)="upcomingTabHandler()" [ngClass]="{ active: activeTab == 'upcoming' }">UPCOMING</a></li>
+        <li class="ml-3"><a (click)="closedTabHandler()" [ngClass]="{ active: activeTab == 'closed' }">CLOSED</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="all-cards">
+  <div class="row">
+    <ng-container *ngFor="let challengeItem of challengesList">
+      <div class="col col-12 col-md-6 col-lg-4">
+        <app-challenges-item [challengeItem]="challengeItem"></app-challenges-item>  
+      </div>
+    </ng-container>
+    <div *ngIf="!challengesList?.length" class="col col-12 text-center empty-tab"><span>There is no any challenges. Please, check list of upcoming challenges.</span></div>
+  </div>
+</div>

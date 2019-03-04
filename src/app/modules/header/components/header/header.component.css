@@ -1,0 +1,13 @@
+.header {
+    padding: 19px 0;
+    color: #fff;
+    background-color: #212121;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header .active {
+    color: #e12ebc;
+}
