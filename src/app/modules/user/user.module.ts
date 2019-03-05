@@ -7,6 +7,7 @@ import { UserProfileImagesComponent } from './components/user-profile-images/use
 import { UserProfileFavouritesComponent } from './components/user-profile-favourites/user-profile-favourites.component';
 import { UserProfileFollowsComponent } from './components/user-profile-follows/user-profile-follows.component';
 import { MatCardModule, MatButtonModule } from '@angular/material';
+import { ImageModalModule } from '../image-modal/image-modal.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
     CommonModule,
     UserRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    ImageModalModule
   ],
   providers: [UserService]
 })
