@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { Image } from '../../interfaces/image';
@@ -16,7 +16,7 @@ export class UserProfileImagesComponent implements OnInit {
   @Input() userProfileId: string;
   public image: ImagesList;
   public uploadPhotosModalIsOpened = false;
-
+  public imageDetailsModalIsOpened = false;
   constructor(
     private activeRoute: ActivatedRoute,
     private userService: UserService

@@ -8,6 +8,7 @@ import { UserProfileFavouritesComponent } from './components/user-profile-favour
 import { UserProfileFollowsComponent } from './components/user-profile-follows/user-profile-follows.component';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 import { UploadPhotosModalModule } from './../upload-photos-modal/upload-photos-modal.module';
+import { ImageModalModule } from '../image-modal/image-modal.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UploadPhotosModalModule } from './../upload-photos-modal/upload-photos-
     UserRoutingModule,
     MatCardModule,
     MatButtonModule,
-    UploadPhotosModalModule
+    UploadPhotosModalModule,
+    ImageModalModule
   ],
   providers: [UserService]
 })
