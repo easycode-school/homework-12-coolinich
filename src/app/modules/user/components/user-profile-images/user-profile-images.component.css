@@ -5,3 +5,17 @@
 mat-card.img-wrap {
     margin-bottom: 15px;
 }
+
+mat-card.upload-card-wrap {
+    max-height: 230px;
+    transition: box-shadow .25s ease-out;
+}
+
+mat-card.upload-card-wrap img {
+    height: 100%;
+    width: 100%;
+}
+
+mat-card.upload-card-wrap:hover {
+    box-shadow: 5px 5px 8px #888888;
+}

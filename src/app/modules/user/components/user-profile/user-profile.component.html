@@ -21,7 +21,7 @@
       </nav>
     </div>
     <div class="user-tab-content">
-      <app-user-profile-images [id]="userProfileId" *ngIf="activeTab == 'selfies'"></app-user-profile-images>
+      <app-user-profile-images [id]="userProfileId" *ngIf="activeTab == 'selfies'" [userProfileId]="userProfileId" [authUserId]="authUserId"></app-user-profile-images>
       <app-user-profile-favourites *ngIf="activeTab == 'favourites'"></app-user-profile-favourites>
       <app-user-profile-follows *ngIf="activeTab == 'followers' || activeTab == 'followings'"></app-user-profile-follows>
     </div>

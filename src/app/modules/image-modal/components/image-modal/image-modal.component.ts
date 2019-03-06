@@ -10,14 +10,16 @@ import { ImageDetails } from '../../interfaces/imageDetails';
 export class ImageModalComponent implements OnInit {
   @Output() onClose: EventEmitter<any> = new EventEmitter();
   @Input() imageId: string;
+  public imageDetails: ImageDetails;
 
   constructor(
     private imageModalService: ImageModalService
   ) { }
 
   ngOnInit() {
-    this.imageModalService.getImageInfo("5c3376a836906700044766ee").subscribe((data: ImageDetails) => {
+    this.imageModalService.getImageInfo(this.imageId).subscribe((data: ImageDetails) => {
       console.log(data);
+      this.imageDetails = data;
     });
   }
 

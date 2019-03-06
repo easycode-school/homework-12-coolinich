@@ -1,15 +1,12 @@
 <ng-container>
   <div class="row images">
-      <div class="col-12 col-sm-6 col-md-4 col">
-          <mat-card class="upload-card-wrap">
-              <img mat-card-image src="\assets\img\upload-photos.png" alt="Upload images">
-              <mat-card-actions>
-                <button mat-button (click)="uploadPhotosModalIsOpened = true" class="upload-photos-btn">Upload</button>
-              </mat-card-actions>
-          </mat-card>
-      </div>
+    <div class="col-12 col-sm-6 col-md-4 col" *ngIf="userProfileId == authUserId">
+        <mat-card class="upload-card-wrap text-center" (click)="uploadPhotosModalIsOpened = true">
+            <img mat-card-image src="\assets\img\upload-photos.png" alt="Upload images">
+        </mat-card>
+    </div>
     <div class="col-12 col-sm-6 col-md-4 col" *ngFor="let img of image?.images">
-        <mat-card class="img-wrap" [id]="img?._id">
+        <mat-card class="img-wrap" [id]="img?._id" (click)="imageDetailsModalIsOpened = true; clickedImageId = img?._id;">
             <img mat-card-image [src]="img?.url" alt="My images">
             <mat-card-actions>
               <button mat-button>{{ img.views.length }} VIEWS</button>
@@ -27,19 +24,5 @@
   (onClose)="uploadPhotosModalIsOpened = false"
   (onUploadEnd)="uploadPhotosModalIsOpened = false; getImages();"
   ></app-upload-photos>
-<div class="row images">
-  <div class="col-12 col-sm-6 col-md-4 col" *ngFor="let img of image?.images">
-      <mat-card class="img-wrap" [id]="img?._id" (click)="imageDetailsModalIsOpened = true;">
-          <img mat-card-image [src]="img?.url" alt="My images">
-          <mat-card-actions>
-            <button mat-button>{{ img.views.length }} VIEWS</button>
-            <button mat-button>{{ img.likes.length }} LIKES</button>
-            <button mat-button class="remove-wrap">REMOVE</button>
-          </mat-card-actions>
-      </mat-card>
-  </div>
-<!-- /.col-4 col -->
-</div>
-<!-- /.row -->
-<!-- Modal to show Image details -->
-<app-image-modal *ngIf="imageDetailsModalIsOpened" (onClose)="imageDetailsModalIsOpened = false" [imageId]="img?._id"></app-image-modal>
+  <!-- Modal to show Image details -->
+<app-image-modal *ngIf="imageDetailsModalIsOpened" (onClose)="imageDetailsModalIsOpened = false" [imageId]="clickedImageId"></app-image-modal>
