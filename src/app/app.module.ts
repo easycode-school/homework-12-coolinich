@@ -9,13 +9,11 @@ import { MessageService } from 'primeng/api';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { MatCardModule } from '@angular/material/card';
 import { HeaderComponent } from './modules/header/components/header/header.component';
-// import { FormatTimePipe } from './pipes/format-time.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    // FormatTimePipe
   ],
   imports: [
     BrowserModule,

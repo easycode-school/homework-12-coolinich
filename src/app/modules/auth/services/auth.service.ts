@@ -20,20 +20,21 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<OnLoginAnswer> {
+    const expiresIn = '2592000000';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-type': 'application/json'
       })
-    }
+    };
 
-    return this.http.post<OnLoginAnswer>(`${this.apiUrl}/public/auth/login`, { email, password }, httpOptions).pipe(
+    return this.http.post<OnLoginAnswer>(`${this.apiUrl}/public/auth/login`, { email, expiresIn, password }, httpOptions).pipe(
       map((res: OnLoginAnswer): OnLoginAnswer => {
         if (!res.error) {
           localStorage.setItem('mlp_client_token', res.token);
         }
         return res;
       })
-    )
+    );
   }
 
   signup(newUserData: User): Observable<OnSignupAnswer> {
