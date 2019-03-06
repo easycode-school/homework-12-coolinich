@@ -12,17 +12,24 @@ import { ImagesList } from '../../interfaces/image';
 })
 export class UserProfileImagesComponent implements OnInit {
   @Input() authUserId: string;
+  // tbd with upload
+  @Input() userProfileId: string;
   public image: ImagesList;
+  public uploadPhotosModalIsOpened = false;
+
   constructor(
     private activeRoute: ActivatedRoute,
     private userService: UserService
   ) { }
 
   ngOnInit() {
+    this.getImages();
+  }
+
+  getImages() {
     const id = this.activeRoute.snapshot.params.id;
     this.userService.getUserImages(id).subscribe((data: ImagesList) => {
       this.image = data;
     });
   }
-
 }

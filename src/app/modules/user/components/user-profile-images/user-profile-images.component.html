@@ -1,5 +1,13 @@
 <ng-container>
   <div class="row images">
+      <div class="col-12 col-sm-6 col-md-4 col">
+          <mat-card class="upload-card-wrap">
+              <img mat-card-image src="\assets\img\upload-photos.png" alt="Upload images">
+              <mat-card-actions>
+                <button mat-button (click)="uploadPhotosModalIsOpened = true" class="upload-photos-btn">Upload</button>
+              </mat-card-actions>
+          </mat-card>
+      </div>
     <div class="col-12 col-sm-6 col-md-4 col" *ngFor="let img of image?.images">
         <mat-card class="img-wrap" [id]="img?._id">
             <img mat-card-image [src]="img?.url" alt="My images">
@@ -14,3 +22,8 @@
   </div>
   <!-- /.row -->
 </ng-container>
+<app-upload-photos 
+  *ngIf="uploadPhotosModalIsOpened"
+  (onClose)="uploadPhotosModalIsOpened = false"
+  (onUploadEnd)="uploadPhotosModalIsOpened = false; getImages();"
+  ></app-upload-photos>
