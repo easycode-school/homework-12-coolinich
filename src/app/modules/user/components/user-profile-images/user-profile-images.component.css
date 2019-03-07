@@ -1,0 +1,36 @@
+.row.images {
+    padding: 30px;
+}
+
+mat-card {
+    height: 230px;
+    padding: 20px 16px 16px;
+    margin-bottom: 15px;
+}
+
+mat-card-actions {
+    padding: 0;
+}
+
+mat-card.img-wrap {
+    text-align: center;
+}
+
+mat-card.img-wrap img {
+    height: 165px;
+    width: 100%;
+}
+
+mat-card.upload-card-wrap {
+    max-height: 230px;
+    transition: box-shadow .25s ease-out;
+}
+
+mat-card.upload-card-wrap img {
+    height: 230px;
+    width: 250px;
+}
+
+mat-card.upload-card-wrap:hover {
+    box-shadow: 5px 5px 8px #888888;
+}

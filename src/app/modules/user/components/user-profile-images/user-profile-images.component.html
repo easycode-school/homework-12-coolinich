@@ -1,0 +1,28 @@
+<ng-container>
+  <div class="row images">
+    <div class="col-12 col-md-6 col-lg-4 col" *ngIf="userProfileId == authUserId">
+        <mat-card class="upload-card-wrap text-center" (click)="uploadPhotosModalIsOpened = true">
+            <img mat-card-image src="\assets\img\upload-photos.png" alt="Upload images">
+        </mat-card>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col" *ngFor="let img of images">
+        <mat-card class="img-wrap" [id]="img?._id" (click)="imageDetailsModalIsOpened = true; clickedImageId = img?._id;">
+            <img mat-card-image [src]="img?.url" alt="My images">
+            <mat-card-actions d-flex >
+              <button mat-button>{{ img.views.length }} <i class="material-icons">visibility</i></button>
+              <button mat-button>{{ img.likes.length }} <i class="material-icons">thumb_up</i></button>
+              <button mat-button class="remove-wrap"><i class="material-icons">delete_outline</i></button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+  <!-- /.col-4 col -->
+  </div>
+  <!-- /.row -->
+</ng-container>
+<app-upload-photos 
+  *ngIf="uploadPhotosModalIsOpened"
+  (onClose)="uploadPhotosModalIsOpened = false"
+  (onUploadEnd)="uploadPhotosModalIsOpened = false; getImages();"
+  ></app-upload-photos>
+  <!-- Modal to show Image details -->
+<app-image-modal *ngIf="imageDetailsModalIsOpened" (onClose)="imageDetailsModalIsOpened = false" [imageId]="clickedImageId" [authUserId]="authUserId"></app-image-modal>

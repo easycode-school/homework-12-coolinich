@@ -1,0 +1,83 @@
+/*=== Start Nav bar with user info   ===*/
+.avatar img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.user-controls {
+    padding: 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+
+.tab-nav a + a {
+    margin-left: 15px;
+}
+
+.tab-nav a {
+    padding: 18px;
+    color: dimgray;
+}
+
+.tab-nav a.active {
+    border-bottom: 2px solid purple;
+    color: purple;
+}
+
+.user-info {
+    margin: 0px auto 0px 15px;
+}
+
+.user-info h6 {
+    line-height: 1em;
+    margin-bottom: .1em;
+}
+
+.user-info p {
+    color: dimgray;
+    font-size: 14px;
+    margin: 0px; 
+}
+
+
+@media screen and (max-width: 767px) {
+    .user-controls {
+        flex-direction: column;
+        height: 360px;
+    }
+
+    .user-controls .avatar {
+        position: relative;
+    }    
+    .user-controls img {
+        position: absolute;
+        top: -50px;
+        left: -50px;
+    }
+
+    .user-controls nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .user-controls nav a {
+        width: 100%;
+    }
+
+    .tab-nav a + a {
+        margin-left: 0px;
+    }
+
+    .user-info {
+        padding-top: 50px;
+        text-align: center;
+        margin: 0px;
+    }
+  }
+/*=== End Nav bar with user info   ===*/

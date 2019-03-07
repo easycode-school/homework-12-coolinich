@@ -1,0 +1,22 @@
+  <mat-card class="challenge-wrapper mb-5 text-center" [id]="challengeItem._id">
+    <mat-card-title class="text-center">{{ challengeItem.challenge_name }}</mat-card-title>
+    <a href="/"><img mat-card-image [src]="challengeItem.background" alt="My images"></a>
+    <mat-card-content class="d-flex align-items-center justify-content-between flex-shrink-0 col col-12 text-uppercase">
+      <div class="d-flex flex-column"> 
+        <span class="awords-amount">{{ challengeItem.awards | formatAmount | showCur: 'usd'}}</span>
+        <span>awards worth</span>
+      </div>
+      <div *appTimer="timerFlag" class="d-flex flex-column">
+        <span class="show-timer">{{ timerLength | formatTime}}</span>
+        <span>{{ numDays }}</span>
+      </div>
+      <div *ngIf="!challengeItem.is_active && !challengeItem.is_closed" class="d-flex flex-column"> 
+        <i class="material-icons">schedule</i>
+        <span>COMMING SOON</span>
+      </div>
+      <div *ngIf="challengeItem.is_active || challengeItem.is_closed" class="d-flex flex-column text-lowercase"> 
+        <span class="votes-amount">{{ challengeItem.votes | formatAmount }}</span>
+        <span>VOTES</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
