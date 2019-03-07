@@ -18,9 +18,7 @@ export class UserProfileComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private userService: UserService,
     private auth: AuthGlobalService
-  ) {
-    // this.authUserId = this.auth.getUserId;
-  }
+  ) {}
 
   ngOnInit() {
     this.authUserId = this.auth.getUserId;

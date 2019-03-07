@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Image } from '../../interfaces/image';
-import { ImagesList } from '../../interfaces/image';
 
 
 @Component({
@@ -11,9 +10,8 @@ import { ImagesList } from '../../interfaces/image';
 })
 export class UserProfileImagesComponent implements OnInit {
   @Input() authUserId: string;
-  // tbd with upload card
   @Input() userProfileId: string;
-  public image: ImagesList;
+  public images: Image[];
   public uploadPhotosModalIsOpened = false;
   public imageDetailsModalIsOpened = false;
   public clickedImageId = '';
@@ -26,8 +24,8 @@ export class UserProfileImagesComponent implements OnInit {
   }
 
   getImages(id: string) {
-    this.userService.getUserImages(id).subscribe((data: ImagesList) => {
-      this.image = data;
+    this.userService.getUserImages(id).subscribe((data: Image[]) => {
+      this.images = data;
     });
   }
 }

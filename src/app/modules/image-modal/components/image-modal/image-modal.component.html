@@ -1,5 +1,5 @@
 <!-- Image Modal -->
-<div class="modal d-block" id="imageModal" tabindex="-1" role="dialog">
+<div class="modal  d-block" id="imageModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -56,12 +56,17 @@
                                     </form>
                                 </div>                        -->
                                 <!-- /.edit-comment-form -->
-                                <span class="text-secondary">{{comment?.time_update}}</span>
+                                <span class="text-secondary">{{comment?.time_update | formatDate}}</span>
                             </div>
                             <!-- /.comment-item-info -->
-                            <!-- <div class="ml-auto">
-                                ${isOwner ? '<div class="edit-comment-wrap"><i class="fas fa-edit"></i></div> <div class="delete-comment-wrap"><i class="fas fa-trash-alt"></i></div>': ''}
-                            </div> -->
+                            <div class="ml-auto" *ngIf="authUserId === comment?.owner._id">
+                                <div class="edit-comment-wrap">
+                                  <i class="material-icons">edit</i>
+                                </div>
+                                <div class="delete-comment-wrap">
+                                  <i class="material-icons">delete_outline</i>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.comment-item-details -->
                         <div class="sub-comments"></div>

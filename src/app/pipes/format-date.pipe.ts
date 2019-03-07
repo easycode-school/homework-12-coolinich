@@ -5,9 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FormatDatePipe implements PipeTransform {
 
-  transform(value: Date): any {
+  transform(value: string): any {
     const currentDate: Date = new Date();
-    const difference = currentDate.getTime() - value.getTime();
+    const startDate: Date = new Date(value);
+    const difference = currentDate.getTime() - startDate.getTime();
     let minutesPrint: string;
     if (difference < 60000) {
       return `right now`;
@@ -22,8 +23,8 @@ export class FormatDatePipe implements PipeTransform {
       }
       return `${Math.round(difference / 3600000) === 1 ? '1 hour' : `${Math.round(difference / 3600000)} hours`}${minutesPrint} ago`;
     } else {
-      return `${value.getDate()}.${value.getMonth() < 10 ? `0${value.getMonth()}` : value.getMonth()}.${value.getFullYear()} at
-      ${value.getHours() ? value.getHours()  : '00'}:${value.getMinutes() ? (value.getMinutes() < 10 ? `0${value.getMinutes()}` : value.getMinutes()) : '00'}`;
+      return `${startDate.getDate()}.${startDate.getMonth() + 1 < 10 ? `0${startDate.getMonth() + 1}` : startDate.getMonth() + 1}.${startDate.getFullYear()} at
+      ${startDate.getHours() ? startDate.getHours()  : '00'}:${startDate.getMinutes() ? (startDate.getMinutes() < 10 ? `0${startDate.getMinutes()}` : startDate.getMinutes()) : '00'}`;
     }
   }
 

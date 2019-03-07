@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModalComponent } from './components/image-modal/image-modal.component';
-import { FormatDatePipe } from 'src/app/pipes/format-date.pipe';
+import { FormatDatePipe } from './../../pipes/format-date.pipe';
 
 @NgModule({
   declarations: [

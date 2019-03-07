@@ -10,6 +10,7 @@ import { ImageDetails } from '../../interfaces/imageDetails';
 export class ImageModalComponent implements OnInit {
   @Output() onClose: EventEmitter<any> = new EventEmitter();
   @Input() imageId: string;
+  @Input() authUserId: string;
   public imageDetails: ImageDetails;
 
   constructor(
@@ -18,7 +19,6 @@ export class ImageModalComponent implements OnInit {
 
   ngOnInit() {
     this.imageModalService.getImageInfo(this.imageId).subscribe((data: ImageDetails) => {
-      console.log(data);
       this.imageDetails = data;
     });
   }
@@ -27,5 +27,9 @@ export class ImageModalComponent implements OnInit {
     this.onClose.emit();
   }
 
-
+  calculatePostCommentTime(timeStamp: string) {
+     const nowTime = new Date();
+     const postTime = new Date(timeStamp);
+     return Math.floor(nowTime.getTime() - postTime.getTime() / 1000);
+  }
 }

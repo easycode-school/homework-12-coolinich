@@ -5,7 +5,7 @@
       </a>
       <nav>
         <ul class="header-nav d-flex ml-5 align-items-center">
-          <li class="ml-3"><a (click)="activeTab = 'profile'" [ngClass]="{ active: activeTab == 'profile' }" routerLink="/users/{{authUserId}}">MY PROFILE</a></li>
+          <li class="ml-3"><a (click)="activeTab = 'profile'; navigateTo(authUserId);" [ngClass]="{ active: activeTab == 'profile' }" routerLink="/users/{{authUserId}}">MY PROFILE</a></li>
           <li class="ml-3"><a (click)="activeTab = 'challenges'" [ngClass]="{ active: activeTab == 'challenges' }" routerLink="/challenges">CHALLENGES</a></li>
           <li class="ml-3"><a (click)="activeTab = 'news'" [ngClass]="{ active: activeTab == 'news' }" routerLink="/">NEWS</a></li>
         </ul>

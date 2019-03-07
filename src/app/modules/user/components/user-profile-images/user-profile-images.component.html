@@ -5,7 +5,7 @@
             <img mat-card-image src="\assets\img\upload-photos.png" alt="Upload images">
         </mat-card>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 col" *ngFor="let img of image?.images">
+    <div class="col-12 col-md-6 col-lg-4 col" *ngFor="let img of images">
         <mat-card class="img-wrap" [id]="img?._id" (click)="imageDetailsModalIsOpened = true; clickedImageId = img?._id;">
             <img mat-card-image [src]="img?.url" alt="My images">
             <mat-card-actions d-flex >
@@ -25,4 +25,4 @@
   (onUploadEnd)="uploadPhotosModalIsOpened = false; getImages();"
   ></app-upload-photos>
   <!-- Modal to show Image details -->
-<app-image-modal *ngIf="imageDetailsModalIsOpened" (onClose)="imageDetailsModalIsOpened = false" [imageId]="clickedImageId"></app-image-modal>
+<app-image-modal *ngIf="imageDetailsModalIsOpened" (onClose)="imageDetailsModalIsOpened = false" [imageId]="clickedImageId" [authUserId]="authUserId"></app-image-modal>

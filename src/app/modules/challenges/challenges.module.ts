@@ -6,7 +6,7 @@ import { ChallengesRoutingModule } from './сhallenges-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { FormatAmountPipe } from './../../pipes/format-amount.pipe';
 import { ShowCurPipe } from './../../pipes/show-cur.pipe';
-import {FormatTimePipe } from './../../pipes/format-time.pipe';
+import { FormatTimePipe } from './../../pipes/format-time.pipe';
 import { TimerDirective } from './../../directives/timer.directive';
 
 @NgModule({
